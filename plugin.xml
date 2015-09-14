@@ -46,15 +46,31 @@
         <source-file src="src/ios/DatePicker.m" />
         <resource-file src="src/ios/DatePicker.xib" />
     </platform>
-	
+
     <!-- windows -->
-    <platform name="windows">		
+    <platform name="windows">
         <js-module src="www/windows/DatePicker.js" name="DatePicker">
             <clobbers target="datePicker" />
         </js-module>
         <js-module src="src/windows/DatePickerProxy.js" name="DatePickerProxy">
             <merges target="" />
         </js-module>
+    </platform>
+
+    <!-- windows phone 8 -->
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="DateTimePicker">
+                <param name="wp-package" value="DateTimePicker"/>
+            </feature>
+        </config-file>
+
+        <js-module src="www/wp8/DateTimePicker.js" name="DateTimePicker">
+            <clobbers target="datePicker" />
+        </js-module>
+
+        <source-file src="src/wp8/DateTimePicker.cs"/>
+        <source-file src="src/wp8/DateTimePickerTask.cs"/>
     </platform>
 
 </plugin>
